@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jawaban AI | Produk OtakDua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+
+    <nav class="navbar glass-nav">
+        <div class="logo">Otak<span>Dua</span></div>
+        <div class="nav-right">
+            <div class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menu-overlay">
+        <ul class="overlay-links">
+            <li><a href="../../../index.html">Beranda</a></li>
+            <li><a href="../soal-ai/index.html">Soal AI</a></li>
+            <li><a href="../jawaban-ai/index.html" class="text-blue">Jawaban AI</a></li>
+            <li><a href="../ngajar-ai/index.html">Ngajar AI</a></li>
+        </ul>
+        <div class="overlay-footer">
+            <a href="https://LINK_RAILWAY_ANDA.up.railway.app/" class="btn-primary" style="width: 100%; text-align: center;">Buka Aplikasi</a>
+        </div>
+    </div>
+
+    <header class="product-detail-hero">
+        <div class="product-icon-large">💡</div>
+        <h1 class="product-detail-title">Jawaban <span class="text-blue">AI</span></h1>
+        <p class="product-detail-subtitle">Sistem koreksi otomatis cerdas bertenaga AI. Pindai lembar jawaban siswa Anda, biarkan AI yang mengoreksi, menghitung nilai, dan mengekspor hasilnya langsung ke Excel atau PDF.</p>
+        
+        <div class="hero-buttons">
+            <a href="https://LINK_RAILWAY_ANDA.up.railway.app/" target="_blank" class="btn-primary btn-lg">Buka Aplikasi Web</a>
+            <a href="https://github.com/USERNAME_ANDA" target="_blank" class="btn-outline btn-lg bg-white">Lihat Source Code</a>
+        </div>
+    </header>
+
+    <section class="product-features">
+        <h2 class="section-title text-center">Fitur Unggulan</h2>
+        <div class="feature-list">
+            <div class="feature-item reveal-up">
+                <h4>📸 Pindai Multi-Gambar</h4>
+                <p>Unggah hingga 10 foto lembar jawaban sekaligus. Sistem kami akan membaca tulisan tangan siswa Anda dengan presisi tinggi.</p>
+            </div>
+            <div class="feature-item reveal-up delay-1">
+                <h4>🎯 Koreksi Essay Semantik</h4>
+                <p>Tidak hanya Pilihan Ganda, AI kami mampu membaca makna dari jawaban Essay siswa dan mencocokkannya dengan kunci jawaban Anda.</p>
+            </div>
+            <div class="feature-item reveal-up delay-2">
+                <h4>📊 Ekspor Instan</h4>
+                <p>Setelah nilai dikalkulasi otomatis sesuai bobot yang Anda atur, langsung unduh rekap nilainya dalam format Word, Excel, atau PDF.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 OtakDua. Empowering Educators with AI.</p></div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : 'auto';
+        });
+        
+        const reveals = document.querySelectorAll('.reveal-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        reveals.forEach(r => observer.observe(r));
+    </script>
+</body>
+</html>
