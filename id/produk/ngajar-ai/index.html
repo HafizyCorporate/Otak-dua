@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Soal AI | Produk OtakDua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+
+    <nav class="navbar glass-nav">
+        <div class="logo">Otak<span>Dua</span></div>
+        <div class="nav-right">
+            <div class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menu-overlay">
+        <ul class="overlay-links">
+            <li><a href="../../../index.html">Beranda</a></li>
+            <li><a href="../soal-ai/index.html" class="text-blue">Soal AI</a></li>
+            <li><a href="../jawaban-ai/index.html">Jawaban AI</a></li>
+            <li><a href="../ngajar-ai/index.html">Ngajar AI</a></li>
+        </ul>
+        <div class="overlay-footer">
+            <a href="https://LINK_RAILWAY_ANDA.up.railway.app/" class="btn-primary" style="width: 100%; text-align: center;">Buka Aplikasi</a>
+        </div>
+    </div>
+
+    <header class="product-detail-hero">
+        <div class="product-icon-large">📝</div>
+        <h1 class="product-detail-title">Soal <span class="text-blue">AI</span></h1>
+        <p class="product-detail-subtitle">Generator cerdas untuk menyusun bank soal, kuis, dan materi evaluasi berbobot tinggi. Sesuaikan tingkat kesulitan dan topik dengan kurikulum sekolah Anda dalam hitungan detik.</p>
+        
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary btn-lg">Segera Hadir</a>
+            <a href="https://github.com/USERNAME_ANDA" target="_blank" class="btn-outline btn-lg bg-white">Lihat GitHub</a>
+        </div>
+    </header>
+
+    <section class="product-features">
+        <h2 class="section-title text-center">Fitur Unggulan</h2>
+        <div class="feature-list">
+            <div class="feature-item reveal-up">
+                <h4>📚 Standar Kurikulum</h4>
+                <p>Hasilkan pertanyaan yang disesuaikan dengan standar kompetensi dan kurikulum nasional terbaru.</p>
+            </div>
+            <div class="feature-item reveal-up delay-1">
+                <h4>🧠 Level Kognitif (HOTS)</h4>
+                <p>Atur komposisi soal untuk menguji pemahaman tingkat tinggi (High Order Thinking Skills) siswa Anda.</p>
+            </div>
+            <div class="feature-item reveal-up delay-2">
+                <h4>🔄 Variasi Tanpa Batas</h4>
+                <p>Buat beberapa versi paket soal untuk mencegah kecurangan saat ujian berlangsung.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 OtakDua. Empowering Educators with AI.</p></div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : 'auto';
+        });
+        const reveals = document.querySelectorAll('.reveal-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        reveals.forEach(r => observer.observe(r));
+    </script>
+</body>
+</html>
