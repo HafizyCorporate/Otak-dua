@@ -329,3 +329,94 @@ footer { text-align: center; padding: 40px 0; background-color: var(--bg-white);
     color: var(--text-gray);
     font-size: 0.95rem;
 }
+
+/* --- Interactive Demo Section --- */
+.demo-section {
+    padding: 80px 0;
+    background: var(--bg-main);
+}
+
+.glass-panel {
+    background: var(--bg-white);
+    border: 1px solid var(--border-soft);
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.demo-input-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.demo-input-group input {
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: 50px;
+    border: 2px solid var(--border-soft);
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.demo-input-group input:focus {
+    border-color: var(--brand-blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.demo-hidden { display: none; }
+
+/* Spinner Loading */
+.spinner {
+    width: 40px; height: 40px;
+    border: 4px solid var(--border-soft);
+    border-top: 4px solid var(--brand-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.animate-pulse { animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* Tampilan Hasil (Mockup) */
+.result-mockup {
+    background: #f8fafc;
+    border: 1px solid var(--border-soft);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.soal-dummy { background: white; padding: 20px; border-radius: 12px; border: 1px solid var(--border-soft); }
+.options-dummy { list-style: none; margin-top: 10px; color: var(--text-gray); }
+.options-dummy li { margin-bottom: 5px; }
+
+.blurred { filter: blur(6px); opacity: 0.6; user-select: none; }
+
+.locked-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 70%;
+    background: linear-gradient(to top, rgba(255,255,255,1) 40%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .demo-input-group { flex-direction: column; }
+    .glass-panel { padding: 40px 20px; }
+}
