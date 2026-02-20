@@ -93,7 +93,59 @@
         </div>
     </header>
 
-    
+        <section id="demo" class="demo-section">
+        <div class="container reveal-up">
+            <div class="demo-container glass-panel">
+                <div class="demo-header text-center">
+                    <span class="badge mb-2">✨ Coba Langsung</span>
+                    <h2>Uji Kehebatan <span class="text-blue">Soal AI</span> Sekarang</h2>
+                    <p>Ketik materi pelajaran apa saja, dan lihat seberapa cepat asisten kami menyusun soal berbobot untuk Anda.</p>
+                </div>
+
+                <div class="demo-input-group" id="demo-input-area">
+                    <input type="text" id="demo-topic" placeholder="Contoh: Sistem Tata Surya Kelas 7" autocomplete="off">
+                    <button onclick="runDemo()" class="btn-primary" id="btn-demo">Buat Soal!</button>
+                </div>
+
+                <div id="demo-processing" class="demo-hidden text-center mt-5">
+                    <div class="spinner"></div>
+                    <p class="mt-3 text-blue font-bold animate-pulse" id="demo-loading-text">Menghubungkan ke AI...</p>
+                </div>
+
+                <div id="demo-result" class="demo-hidden mt-5 relative">
+                    <div class="result-mockup">
+                        <p class="font-bold text-dark mb-2">Mata Pelajaran: <span id="result-topic" class="text-blue">...</span></p>
+                        <p class="text-sm text-gray mb-4">Berikut adalah cuplikan soal yang dihasilkan:</p>
+                        
+                        <div class="soal-dummy">
+                            <p><strong>1.</strong> Berdasarkan karakteristiknya, planet manakah yang dijuluki sebagai "Planet Merah" dan memiliki gunung berapi tertinggi di tata surya (Olympus Mons)?</p>
+                            <ul class="options-dummy">
+                                <li>A. Venus</li>
+                                <li>B. Mars</li>
+                                <li>C. Jupiter</li>
+                                <li>D. Saturnus</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="soal-dummy blurred mt-4">
+                            <p><strong>2.</strong> Mengapa Pluto tidak lagi diklasifikasikan sebagai planet utama dalam sistem tata surya kita sejak tahun 2006?</p>
+                            <ul class="options-dummy">
+                                <li>A. Ukurannya menyusut</li>
+                                <li>B. Orbitnya memotong Neptunus</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="locked-overlay">
+                            <h3 class="mb-2 text-dark font-bold">Luar Biasa, Bukan?</h3>
+                            <p class="mb-4 text-sm">AI kami berhasil menyusun 10 soal lengkap dengan kunci jawaban. Daftar gratis sekarang untuk melihat, mengedit, dan mengekspor ke Word/Excel.</p>
+                            <a href="https://LINK_RAILWAY_ANDA.up.railway.app/register" target="_blank" class="btn-primary">Daftar & Buka Kunci (Gratis)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     
     <section id="kisah-kami" class="story-section">
         <div class="container reveal-up">
@@ -174,13 +226,14 @@
         </div>
     </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
     <script>
         // 1. Inisialisasi Slider Produk (Diperbaiki agar tidak bertumpuk)
         var swiper = new Swiper(".mySwiper", {
-            loop: true, /* Tambahkan ini agar slider berputar terus tanpa mentok */
-            spaceBetween: 0, /* Jarak antar slide dibuat 0 */
-            grabCursor: true, /* Mengubah kursor jadi bentuk tangan saat digeser */
+            loop: true, 
+            spaceBetween: 0, 
+            grabCursor: true, 
             navigation: { 
                 nextEl: ".swiper-button-next", 
                 prevEl: ".swiper-button-prev" 
@@ -217,9 +270,42 @@
             });
         }, { threshold: 0.1 });
         reveals.forEach(r => observer.observe(r));
-    </script>
 
-    
+        // 4. Logika Interactive Demo (PASTIKAN DI DALAM TAG SCRIPT)
+        function runDemo() {
+            const topicInput = document.getElementById('demo-topic').value;
+            if(!topicInput) {
+                alert("Silakan ketik topik materinya dulu ya!");
+                return;
+            }
+
+            const inputArea = document.getElementById('demo-input-area');
+            const processing = document.getElementById('demo-processing');
+            const result = document.getElementById('demo-result');
+            const loadingText = document.getElementById('demo-loading-text');
+            const resultTopic = document.getElementById('result-topic');
+
+            // Sembunyikan input, tampilkan loading
+            inputArea.style.display = 'none';
+            processing.style.display = 'block';
+
+            // Simulasi proses AI
+            setTimeout(() => { loadingText.innerText = "Menganalisis standar kurikulum..."; }, 1000);
+            setTimeout(() => { loadingText.innerText = "Menyusun soal High Order Thinking (HOTS)..."; }, 2500);
+            setTimeout(() => { loadingText.innerText = "Menyiapkan kunci jawaban..."; }, 4000);
+
+            // Tampilkan hasil setelah 5 detik
+            setTimeout(() => {
+                processing.style.display = 'none';
+                result.style.display = 'block';
+                resultTopic.innerText = topicInput.toUpperCase();
+            }, 5000);
+        }
+        
+    </script>
+</body>
+</html>
+
     
 </body>
 </html>
