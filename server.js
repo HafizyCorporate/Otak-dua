@@ -22,10 +22,12 @@ app.post('/api/demo-soal', async (req, res) => {
     try {
         let result;
         try {
-            const primaryModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+            // ✅ SUDAH DIUPDATE KE GEMINI 2.5 FLASH
+            const primaryModel = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
             result = await primaryModel.generateContent(prompt);
         } catch (e) {
-            console.warn("Beralih ke fallback model Gemini 3 Flash...");
+            console.warn("Model utama gagal, beralih ke fallback model Gemini 3 Flash...");
+            // Model cadangan
             const fallbackModel = genAI.getGenerativeModel({ model: "gemini-3-flash" });
             result = await fallbackModel.generateContent(prompt);
         }
