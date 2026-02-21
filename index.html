@@ -206,13 +206,11 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-     <script>
-        // 1. DAFTARKAN PLUGIN GSAP PERTAMA KALI (WAJIB DI ATAS)
+    <script>
+        // 1. DAFTARKAN PLUGIN GSAP
         gsap.registerPlugin(ScrollTrigger);
 
         // 2. Animasi Image Sequence Beranda (Hero)
-         // Setup awal: Sembunyikan panel 2 dan 3
         gsap.set("#panel-1", { autoAlpha: 1, y: 0 });
         gsap.set("#panel-2, #panel-3", { autoAlpha: 0, y: 50 });
 
@@ -220,10 +218,10 @@
             scrollTrigger: {
                 trigger: ".hero-sequence-section",
                 start: "top top",
-                end: "+=3000", // Durasi scroll diperpanjang sedikit
+                end: "+=3000",
                 scrub: 1,
                 pin: true,
-                anticipatePin: 1 // Membuat transisi pin lebih mulus
+                anticipatePin: 1
             }
         });
 
@@ -253,18 +251,22 @@
         // 4. Animasi GSAP Elemen Lainnya
         gsap.from(".navbar", { y: -100, opacity: 0, duration: 1, ease: "power3.out" });
 
+        // --- FIX UTAMA: PAKSA KONTEN MUNCUL (fromTo) ---
         gsap.utils.toArray('.reveal-up').forEach(element => {
-            gsap.from(element, {
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                },
-                y: 60,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
+            gsap.fromTo(element, 
+                { opacity: 0, y: 60 }, 
+                {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 1, // Memaksa agar konten 100% muncul
+                    y: 0,       // Memaksa kembali ke posisi asli
+                    duration: 1,
+                    ease: "power3.out"
+                }
+            );
         });
 
         gsap.from(".bento-card", {
@@ -291,7 +293,7 @@
             ease: "power3.out"
         });
 
-        // 5. Logika Interactive Demo dengan AI
+        // 5. Logika Interactive Demo AI
         async function runDemo() {
             const topicInput = document.getElementById('demo-topic').value;
             if(!topicInput) return alert("Silakan ketik topik materinya dulu!");
@@ -324,7 +326,7 @@
                 document.getElementById('result-topic').innerText = topicInput.toUpperCase();
             }
         }
-        
     </script>
-</body>
+
+     </body>
 </html> 
