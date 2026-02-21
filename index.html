@@ -212,16 +212,18 @@
         gsap.registerPlugin(ScrollTrigger);
 
         // 2. Animasi Image Sequence Beranda (Hero)
-        // Setup awal: Sembunyikan panel 2 dan 3 di bawah
+         // Setup awal: Sembunyikan panel 2 dan 3
+        gsap.set("#panel-1", { autoAlpha: 1, y: 0 });
         gsap.set("#panel-2, #panel-3", { autoAlpha: 0, y: 50 });
 
         let heroTl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".hero-sequence-section",
                 start: "top top",
-                end: "+=2500",
+                end: "+=3000", // Durasi scroll diperpanjang sedikit
                 scrub: 1,
-                pin: true
+                pin: true,
+                anticipatePin: 1 // Membuat transisi pin lebih mulus
             }
         });
 
