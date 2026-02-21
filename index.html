@@ -267,7 +267,7 @@
         }, { threshold: 0.1 });
         reveals.forEach(r => observer.observe(r));
 
-                        // 4. Logika Interactive Demo dengan AI
+                 // 4. Logika Interactive Demo dengan AI
         async function runDemo() {
             const topicInput = document.getElementById('demo-topic').value;
             if(!topicInput) return alert("Silakan ketik topik materinya dulu!");
@@ -277,23 +277,34 @@
             document.getElementById('demo-loading-text').innerText = "Menyusun 1 soal dari AI...";
 
             try {
-                // KARENA JALAN DI LOKAL PORT 8080, PAKAI LINK LOCALHOST INI:
-                const response = await fetch('http://localhost:8080/api/demo-soal', {
+                // TRIK JITU: Gunakan '/api/demo-soal' saja. 
+                // Otomatis akan menyesuaikan, baik saat dites di laptop maupun di Railway!
+                const response = await fetch('/api/demo-soal', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ materi: topicInput })
                 });
 
                 const data = await response.json();
-                document.getElementById('ai-question-container').innerText = data.soal || "Gagal memuat format.";
+                
+                if (data.soal) {
+                    // Memasukkan hasil AI betulan ke dalam kotak
+                    document.getElementById('ai-question-container').innerText = data.soal;
+                } else {
+                    document.getElementById('ai-question-container').innerText = "Sistem gagal memproses format AI.";
+                }
+
             } catch (error) {
+                console.error("Error Detail:", error);
                 document.getElementById('ai-question-container').innerText = "Koneksi ke server AI gagal.";
             } finally {
+                // Sembunyikan loading, munculkan hasil soal + kotak peringatan kuning
                 document.getElementById('demo-processing').style.display = 'none';
                 document.getElementById('demo-result').style.display = 'block';
                 document.getElementById('result-topic').innerText = topicInput.toUpperCase();
             }
         }
+
 
     </script>
 </body>
