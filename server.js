@@ -33,5 +33,6 @@ app.post('/api/demo-soal', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+// Ubah bagian ini di paling bawah server.js
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server OtakDua jalan di port ${PORT}`));
