@@ -32,14 +32,21 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo img {
-    height: 50px; 
+    height: 60px; /* Kita naikkan sedikit tinggi dasarnya */
     width: auto;  
     object-fit: contain; 
     
-    /* Tambahan efek ZOOM */
-    transform: scale(1.5); /* Angka 1.5 berarti diperbesar 150%. Bisa Anda ganti misal jadi 1.8 atau 2.0 jika kurang besar */
-    transform-origin: left center; /* Penting: Agar saat di-zoom, logonya melebar ke kanan dan tidak terpotong di ujung kiri layar */
+    /* ZOOM EKSTREM 250% */
+    transform: scale(2.5); 
+    
+    /* Titik pusat zoom dikunci di sebelah kiri agar melebar ke kanan (tidak terpotong layar kiri) */
+    transform-origin: left center; 
 }
 
 
