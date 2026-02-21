@@ -305,7 +305,7 @@ footer { text-align: center; padding: 40px 0; background-color: var(--bg-white);
 
     /* Penyesuaian Navbar agar tidak bertabrakan dengan Logo yang besar */
     .navbar { padding: 0 15px; } 
-    .logo { margin-left: -5px; }
+    .logo { margin-left: -30px; }
 
     /* Mengatur ukuran ornamen tengah agar muat di layar sempit */
     .nav-ornament {
