@@ -89,36 +89,81 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
 }
 .btn-outline-white:hover { background: white; color: var(--text-dark); }
 
-/* --- HERO IMAGE SEQUENCE (GSAP) --- */
+/* --- HERO IMAGE SEQUENCE (FIX TOTAL) --- */
 .hero-sequence-section {
-    position: relative; width: 100%; height: 100vh;
-    overflow: hidden; display: flex; align-items: center; justify-content: center;
+    position: relative; 
+    width: 100%; 
+    height: 100vh;
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    z-index: 1; 
 }
+
 .seq-bg {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover; background-position: center; opacity: 0; z-index: 1;
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background-size: cover; 
+    background-position: center; 
+    opacity: 0; 
+    z-index: 1;
 }
+
 #bg-1 { opacity: 1; }
+
 .slide-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(90deg, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.2) 100%);
     z-index: 2;
 }
-.seq-content-wrapper { position: relative; z-index: 10; width: 100%; display: flex; justify-content: center; }
-.seq-panel { position: absolute; width: 90%; max-width: 800px; }
 
-.slide-content-glass {
-    max-width: 600px; padding: 40px; border-radius: 24px;
-    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.2); color: white;
+.seq-content-wrapper { 
+    position: relative; 
+    z-index: 10; 
+    width: 100%; 
+    height: 100%; /* WAJIB 100% agar teks tepat di tengah layar */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
-.hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 15px; }
-.text-light-blue { color: #93c5fd; }
-.hero-subtitle { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
-.hero-buttons { display: flex; gap: 15px; }
 
-/* --- Sections Umum --- */
-.section-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
+.seq-panel { 
+    position: absolute; 
+    width: 90%; 
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Kotak Kaca */
+.slide-content-glass {
+    padding: 40px; 
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    color: white;
+}
+
+/* --- Sections Umum (BIAR KISAH KAMI DLL MUNCUL) --- */
+section {
+    position: relative;
+    z-index: 20; /* Harus lebih tinggi dari Hero agar tidak tertutup saat scroll */
+    background: var(--bg-main); 
+    width: 100%;
+}
+
+.section-title { 
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    letter-spacing: -1px; 
+    margin-bottom: 20px; 
+}
+
 .reveal-up { opacity: 0; transform: translateY(30px); }
 
 /* --- Bento Grid --- */
