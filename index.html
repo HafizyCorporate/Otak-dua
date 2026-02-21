@@ -258,14 +258,53 @@
         hamburgerBtn.addEventListener('click', toggleMenu);
         menuCloses.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // 3. Animasi Scroll
-        const reveals = document.querySelectorAll('.reveal-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                // 3. Animasi GSAP & ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // A. Animasi Navbar (Turun dari atas saat web dibuka)
+        gsap.from(".navbar", { y: -100, opacity: 0, duration: 1, ease: "power3.out" });
+
+        // B. Animasi Scroll Default untuk semua elemen '.reveal-up'
+        gsap.utils.toArray('.reveal-up').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%", // Mulai animasi saat elemen menyentuh 85% layar bawah
+                    toggleActions: "play none none reverse" // Main saat turun, sembunyi saat naik
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
             });
-        }, { threshold: 0.1 });
-        reveals.forEach(r => observer.observe(r));
+        });
+
+        // C. Animasi Spesial Bento Grid (Muncul Bergantian / Stagger)
+        gsap.from(".bento-card", {
+            scrollTrigger: {
+                trigger: ".bento-grid",
+                start: "top 80%"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2, // Jeda 0.2 detik antar kartu agar muncul bergantian
+            ease: "back.out(1.7)" // Efek sedikit membal di akhir animasi
+        });
+
+        // D. Animasi Spesial Testimoni (Muncul dari samping bergantian)
+        gsap.from(".testi-card", {
+            scrollTrigger: {
+                trigger: ".testimoni-grid",
+                start: "top 80%"
+            },
+            x: -50, // Muncul dari kiri ke kanan
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.3,
+            ease: "power3.out"
+        });
+
 
                  // 4. Logika Interactive Demo dengan AI
         async function runDemo() {
