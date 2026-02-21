@@ -33,10 +33,15 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
 }
 
 .logo img {
-    height: 50px; /* Tinggi disesuaikan agar pas di navbar 75px */
-    width: auto;  /* Lebar otomatis menyesuaikan agar tidak gepeng */
-    object-fit: contain; /* Memastikan gambar utuh */
+    height: 50px; 
+    width: auto;  
+    object-fit: contain; 
+    
+    /* Tambahan efek ZOOM */
+    transform: scale(1.5); /* Angka 1.5 berarti diperbesar 150%. Bisa Anda ganti misal jadi 1.8 atau 2.0 jika kurang besar */
+    transform-origin: left center; /* Penting: Agar saat di-zoom, logonya melebar ke kanan dan tidak terpotong di ujung kiri layar */
 }
+
 
 
 .nav-right { display: flex; align-items: center; gap: 20px; }
