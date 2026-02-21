@@ -44,6 +44,7 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     background: rgba(37, 99, 235, 0.05); padding: 6px 14px;
     border-radius: 50px; border: 1px solid rgba(37, 99, 235, 0.15);
 }
+.nav-ornament .sparkle { font-size: 0.85rem; animation: pulse 2s infinite; }
 
 .nav-right { display: flex; align-items: center; gap: 20px; }
 
@@ -71,7 +72,9 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
 .menu-overlay.active { transform: translateY(0); }
 .overlay-links { list-style: none; text-align: center; margin-bottom: 40px; }
 .overlay-links li { margin: 25px 0; }
-.overlay-links a { text-decoration: none; font-size: 2rem; font-weight: 800; color: var(--text-dark); }
+.overlay-links a { text-decoration: none; font-size: 2rem; font-weight: 800; color: var(--text-dark); transition: color 0.2s; }
+.overlay-links a:hover { color: var(--brand-blue); }
+.overlay-footer { width: 80%; max-width: 300px; }
 
 /* --- Tombol Global --- */
 .btn-primary, .btn-primary-sm {
@@ -81,11 +84,21 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
 }
 .btn-primary { padding: 12px 28px; font-size: 1rem; }
 .btn-primary-sm { padding: 8px 20px; font-size: 0.9rem; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
+.btn-primary:hover, .btn-primary-sm:hover { background-color: var(--brand-blue-hover); border-color: var(--brand-blue-hover); transform: translateY(-2px); }
+
+.btn-outline {
+    background-color: transparent; color: var(--text-dark);
+    text-decoration: none; font-weight: 700; border-radius: 50px;
+    padding: 12px 28px; font-size: 1rem; border: 2px solid var(--border-soft);
+    display: inline-block; transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--text-dark); }
+.bg-white { background-color: var(--bg-white) !important; }
 
 .btn-outline-white {
     background: transparent; color: white; border: 2px solid white;
     padding: 12px 28px; border-radius: 50px; font-weight: 700; transition: 0.2s;
+    display: inline-block; text-decoration: none;
 }
 .btn-outline-white:hover { background: white; color: var(--text-dark); }
 
@@ -110,7 +123,6 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     opacity: 0; 
     z-index: 1;
 }
-
 #bg-1 { opacity: 1; }
 
 .slide-overlay {
@@ -124,7 +136,7 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     position: relative; 
     z-index: 10; 
     width: 100%; 
-    height: 100%; /* WAJIB 100% agar teks tepat di tengah layar */
+    height: 100%; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -134,83 +146,133 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     position: absolute; 
     width: 90%; 
     max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex; flex-direction: column; justify-content: center;
 }
 
-/* Kotak Kaca */
 .slide-content-glass {
-    padding: 40px; 
-    border-radius: 24px;
+    padding: 40px; border-radius: 24px;
     background: rgba(255, 255, 255, 0.1); 
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.2); 
-    color: white;
+    color: white; text-align: left;
 }
-
-/* --- Sections Umum (BIAR KISAH KAMI DLL MUNCUL) --- */
-section {
-    position: relative;
-    z-index: 20; /* Harus lebih tinggi dari Hero agar tidak tertutup saat scroll */
-    background: var(--bg-main); 
-    width: 100%;
+.slide-content-glass .badge { 
+    background: rgba(255,255,255,0.2); color: white; 
+    border: none; display: inline-block; padding: 6px 14px; 
+    font-weight: 800; font-size: 0.8rem; border-radius: 50px; margin-bottom: 20px;
 }
+.slide-content-glass .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 15px; }
+.text-light-blue { color: #93c5fd; }
+.slide-content-glass .hero-subtitle { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+.slide-content-glass .hero-buttons { display: flex; gap: 15px; justify-content: flex-start; }
 
-.section-title { 
-    font-size: 2.2rem; 
-    font-weight: 800; 
-    letter-spacing: -1px; 
-    margin-bottom: 20px; 
-}
-
-.reveal-up { opacity: 0; transform: translateY(30px); }
-
-/* --- Bento Grid --- */
-.mission-section { padding: 100px 0; }
-.bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.bento-card { background: white; padding: 30px; border-radius: 24px; border: 1px solid var(--border-soft); transition: 0.3s; }
-.bento-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.bento-1, .bento-2, .bento-3, .bento-4 { grid-column: span 2; }
-
-/* --- Testimoni --- */
-.testimoni-section { padding: 100px 0; background: var(--bg-white); }
-.testimoni-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.testi-card { background: var(--bg-main); padding: 30px; border-radius: 20px; border: 1px solid var(--border-soft); }
+/* --- Sections Umum --- */
+section { position: relative; z-index: 20; background: var(--bg-main); width: 100%; }
+.section-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
+.reveal-up { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.reveal-up.active { opacity: 1; transform: translateY(0); }
 
 /* --- Interactive Demo Section --- */
-.demo-section { padding: 80px 0; }
+.demo-section { padding: 80px 0; background: var(--bg-main); }
 .glass-panel {
-    background: white; border: 1px solid var(--border-soft);
+    background: var(--bg-white); border: 1px solid var(--border-soft);
     border-radius: 30px; padding: 60px 40px; max-width: 900px; margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
 }
 .demo-input-group { display: flex; gap: 15px; max-width: 600px; margin: 30px auto; }
 .demo-input-group input { 
     flex: 1; padding: 16px 24px; border-radius: 50px; 
-    border: 2px solid var(--border-soft); outline: none; 
+    border: 2px solid var(--border-soft); outline: none; font-size: 1rem;
+    font-weight: 500; transition: all 0.3s;
 }
-.demo-input-group input:focus { border-color: var(--brand-blue); }
+.demo-input-group input:focus { border-color: var(--brand-blue); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
+.demo-hidden { display: none; }
 
 .spinner {
     width: 40px; height: 40px; border: 4px solid var(--border-soft);
     border-top: 4px solid var(--brand-blue); border-radius: 50%;
-    animation: spin 1s linear infinite; margin: 20px auto;
+    animation: spin 1s linear infinite; margin: 0 auto;
 }
 @keyframes spin { 100% { transform: rotate(360deg); } }
+.animate-pulse { animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 
 .result-mockup {
     background: #f8fafc; border: 1px solid var(--border-soft);
-    border-radius: 20px; padding: 30px; position: relative; overflow: hidden;
+    border-radius: 20px; padding: 30px; text-align: left; position: relative; overflow: hidden;
 }
+.soal-dummy { background: white; padding: 20px; border-radius: 12px; border: 1px solid var(--border-soft); }
+.options-dummy { list-style: none; margin-top: 10px; color: var(--text-gray); }
+.options-dummy li { margin-bottom: 5px; }
+.blurred { filter: blur(6px); opacity: 0.6; user-select: none; }
+
 .locked-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 80%;
-    background: linear-gradient(to top, white 50%, rgba(255,255,255,0) 100%);
+    position: absolute; bottom: 0; left: 0; right: 0; height: 70%;
+    background: linear-gradient(to top, rgba(255,255,255,1) 40%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
     display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-    padding: 30px; text-align: center;
+    padding: 40px 20px; text-align: center;
+}
+
+/* --- Kisah Kami --- */
+.story-section { padding: 100px 0; background: var(--bg-white); }
+.story-box { max-width: 800px; margin: 0 auto; background: var(--bg-main); padding: 40px; border-radius: 24px; border: 1px solid var(--border-soft); font-size: 1.1rem; color: var(--text-gray); line-height: 1.8; }
+.story-box p { margin-bottom: 20px; }
+.story-box p:last-child { margin-bottom: 0; }
+
+/* --- Visi Misi (Bento Grid) --- */
+.mission-section { padding: 100px 0; }
+.vision-text { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: var(--text-gray); }
+.bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.bento-card { background: var(--bg-white); padding: 30px; border-radius: 24px; border: 1px solid var(--border-soft); transition: transform 0.3s; }
+.bento-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.bento-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+.bento-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.bento-card p { color: var(--text-gray); font-size: 0.95rem; }
+.bento-1, .bento-2, .bento-3, .bento-4 { grid-column: span 2; }
+
+/* --- Testimoni --- */
+.testimoni-section { padding: 100px 0; background: var(--bg-white); }
+.testimoni-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.testi-card { background: var(--bg-main); padding: 30px; border-radius: 20px; border: 1px solid var(--border-soft); }
+.stars { font-size: 1.2rem; margin-bottom: 15px; }
+.quote { font-size: 1.05rem; font-style: italic; color: var(--text-dark); margin-bottom: 20px; }
+.author { font-weight: 700; color: var(--brand-blue); }
+
+/* --- Contact --- */
+.contact-section { padding: 80px 0; }
+.contact-box { background: linear-gradient(135deg, #2563eb, #1e40af); padding: 60px 40px; border-radius: 30px; text-align: center; color: white; }
+.contact-box .section-title { color: white; }
+.contact-box p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 30px auto; }
+.contact-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+
+/* ========================================================================= */
+/* --- HALAMAN DETAIL PRODUK (YANG TADI SEMPAT HILANG) --- */
+/* ========================================================================= */
+.product-detail-hero {
+    padding: 150px 5% 80px 5%;
+    text-align: center;
+    background: radial-gradient(circle at top, var(--bg-white) 0%, var(--bg-main) 100%);
+    min-height: 70vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+.product-icon-large { font-size: 5rem; margin-bottom: 20px; animation: float 6s ease-in-out infinite; }
+.product-detail-title { font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 20px; color: var(--text-dark); }
+.product-detail-subtitle { font-size: 1.25rem; color: var(--text-gray); max-width: 700px; margin: 0 auto 40px auto; line-height: 1.8; }
+.product-features { padding: 60px 5%; background: var(--bg-white); border-top: 1px solid var(--border-soft); }
+.feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1000px; margin: 40px auto 0 auto; }
+.feature-item { padding: 30px; background: var(--bg-main); border-radius: 20px; border: 1px solid var(--border-soft); text-align: left; }
+.feature-item h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--text-dark); }
+.feature-item p { color: var(--text-gray); font-size: 0.95rem; }
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
 /* --- Footer --- */
-footer { text-align: center; padding: 40px 0; background: white; border-top: 1px solid var(--border-soft); }
+footer { text-align: center; padding: 40px 0; background-color: var(--bg-white); border-top: 1px solid var(--border-soft); color: var(--text-gray); font-size: 0.9rem; font-weight: 600; }
 
 /* ========================================================================= */
 /* --- PENGATURAN RESPONSIF LAYAR HP --- */
@@ -219,20 +281,23 @@ footer { text-align: center; padding: 40px 0; background: white; border-top: 1px
     .hidden-mobile { display: none; }
     .navbar { padding: 0 15px; }
     .logo { margin-left: -30px; }
-    
-    .nav-ornament { font-size: 0.6rem; padding: 4px 10px; }
+    .nav-ornament { font-size: 0.6rem; padding: 4px 10px; letter-spacing: 1px; }
 
     /* Hero Sequence HP */
     .slide-content-glass { padding: 25px; width: 95%; border-radius: 16px; }
-    .hero-title { font-size: 2.2rem; }
-    .hero-subtitle { font-size: 0.95rem; }
-    .hero-buttons { flex-direction: column; }
-    .hero-buttons a { width: 100%; text-align: center; }
+    .slide-content-glass .hero-title { font-size: 2.2rem; }
+    .slide-content-glass .hero-subtitle { font-size: 0.95rem; }
+    .slide-content-glass .hero-buttons { flex-direction: column; gap: 10px; }
+    .slide-content-glass .hero-buttons a { width: 100%; text-align: center; }
 
-    /* Bento & Demo */
+    /* Bento & Demo HP */
     .bento-1, .bento-2, .bento-3, .bento-4 { grid-column: span 4; }
     .demo-input-group { flex-direction: column; }
     .glass-panel { padding: 40px 20px; }
+
+    /* Halaman Produk HP */
+    .product-detail-title { font-size: 2.5rem; }
+    .product-detail-subtitle { font-size: 1.1rem; }
 }
 
 @media (max-width: 380px) {
