@@ -267,7 +267,7 @@
         }, { threshold: 0.1 });
         reveals.forEach(r => observer.observe(r));
 
-                // 4. Logika Interactive Demo dengan AI
+                        // 4. Logika Interactive Demo dengan AI
         async function runDemo() {
             const topicInput = document.getElementById('demo-topic').value;
             if(!topicInput) return alert("Silakan ketik topik materinya dulu!");
@@ -277,8 +277,8 @@
             document.getElementById('demo-loading-text').innerText = "Menyusun 1 soal dari AI...";
 
             try {
-                // Ganti localhost dengan link domain backend Anda saat deploy
-                const response = await fetch('https://backend-otakdua-anda.up.railway.app/api/demo-soal', {
+                // KARENA JALAN DI LOKAL PORT 8080, PAKAI LINK LOCALHOST INI:
+                const response = await fetch('http://localhost:8080/api/demo-soal', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ materi: topicInput })
