@@ -3,79 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Soal AI | Produk OtakDua</title>
+    <title>Fitur Soal AI | OtakDua</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../style.css">
 </head>
 <body>
 
     <nav class="navbar glass-nav">
-        <div class="logo">Otak<span>Dua</span></div>
+        <div class="logo">
+            <a href="../../../index.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="../../../assets/logo-otakdua.png" alt="Logo OtakDua Utama">
+            </a>
+        </div>
+        
+        <div class="nav-ornament">
+            <span class="sparkle">✨</span> Asisten Guru
+        </div>
+
         <div class="nav-right">
-            <div class="hamburger" id="hamburger-btn">
-                <span></span><span></span><span></span>
-            </div>
+            <a href="https://LINK_RAILWAY_ANDA.up.railway.app/register" class="btn-primary-sm hidden-mobile">Coba Gratis</a>
         </div>
     </nav>
 
-    <div class="menu-overlay" id="menu-overlay">
-        <ul class="overlay-links">
-            <li><a href="../../../index.html">Beranda</a></li>
-            <li><a href="../soal-ai/index.html" class="text-blue">Soal AI</a></li>
-            <li><a href="../jawaban-ai/index.html">Jawaban AI</a></li>
-            <li><a href="../ngajar-ai/index.html">Ngajar AI</a></li>
-        </ul>
-        <div class="overlay-footer">
-            <a href="https://LINK_RAILWAY_ANDA.up.railway.app/" class="btn-primary" style="width: 100%; text-align: center;">Buka Aplikasi</a>
-        </div>
-    </div>
-
-    <header class="product-detail-hero">
+    <header class="product-detail-hero reveal-up active">
         <div class="product-icon-large">📝</div>
         <h1 class="product-detail-title">Soal <span class="text-blue">AI</span></h1>
-        <p class="product-detail-subtitle">Generator cerdas untuk menyusun bank soal, kuis, dan materi evaluasi berbobot tinggi. Sesuaikan tingkat kesulitan dan topik dengan kurikulum sekolah Anda dalam hitungan detik.</p>
-        
-        <div class="hero-buttons">
-            <a href="#" class="btn-primary btn-lg">Segera Hadir</a>
-            <a href="https://github.com/USERNAME_ANDA" target="_blank" class="btn-outline btn-lg bg-white">Lihat GitHub</a>
+        <p class="product-detail-subtitle">Sistem cerdas yang merancang bank soal berkualitas tinggi sesuai kurikulum dalam hitungan detik. Bebaskan diri Anda dari rutinitas menyusun evaluasi.</p>
+        <div class="mt-5">
+            <a href="#demo-fitur" class="btn-primary">Coba Ketik Materi Anda</a>
+            <a href="../../../index.html" class="btn-outline" style="margin-left: 10px;">Kembali ke Beranda</a>
         </div>
     </header>
 
-    <section class="product-features">
-        <h2 class="section-title text-center">Fitur Unggulan</h2>
-        <div class="feature-list">
-            <div class="feature-item reveal-up">
-                <h4>📚 Standar Kurikulum</h4>
-                <p>Hasilkan pertanyaan yang disesuaikan dengan standar kompetensi dan kurikulum nasional terbaru.</p>
+    <section class="product-features reveal-up">
+        <div class="container text-center">
+            <h2 class="section-title">Kenapa Harus <span class="text-blue">Soal AI</span>?</h2>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>📸 Ekstrak dari Foto & Teks</h4>
+                    <p>Membuat soal kini sangat mudah. Cukup ketik materi atau potret tulisan dari buku cetak Anda, AI kami akan otomatis mengubahnya menjadi pertanyaan berbobot.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📝 Berbagai Format Soal</h4>
+                    <p>Sangat fleksibel! Anda bisa membuat soal Pilihan Ganda (PG) maupun soal Esai (Uraian) sesuai dengan kebutuhan evaluasi di kelas Anda.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🖨️ Langsung Export PDF & Word</h4>
+                    <p>Tidak perlu repot menyalin ulang. Langsung *export* atau unduh kumpulan soal Anda ke dalam format PDF atau Word yang sudah tertata rapi.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🗂️ Riwayat Arsip Soal</h4>
+                    <p>Ada riwayat (*history*) lengkap jika Anda ingin melihat kembali, mengedit, atau mencetak ulang soal-soal yang pernah Anda buat sebelumnya.</p>
+                </div>
             </div>
-            <div class="feature-item reveal-up delay-1">
-                <h4>🧠 Level Kognitif (HOTS)</h4>
-                <p>Atur komposisi soal untuk menguji pemahaman tingkat tinggi (High Order Thinking Skills) siswa Anda.</p>
-            </div>
-            <div class="feature-item reveal-up delay-2">
-                <h4>🔄 Variasi Tanpa Batas</h4>
-                <p>Buat beberapa versi paket soal untuk mencegah kecurangan saat ujian berlangsung.</p>
+        </div>
+    </section>
+
+    <section id="demo-fitur" class="demo-section reveal-up">
+        <div class="container">
+            <div class="demo-container glass-panel">
+                <div class="demo-header text-center">
+                    <span class="badge mb-2">✨ Coba Langsung di Sini</span>
+                    <h2>Uji Kecepatan <span class="text-blue">Soal AI</span></h2>
+                    <p>Ketik materi pelajaran apa saja di bawah ini, dan saksikan keajaibannya.</p>
+                </div>
+
+                <div class="demo-input-group" id="demo-input-area">
+                    <input type="text" id="demo-topic" placeholder="Contoh: Sistem Tata Surya Kelas 7" autocomplete="off">
+                    <button onclick="runDemo()" class="btn-primary" id="btn-demo">Hasilkan Soal!</button>
+                </div>
+
+                <div id="demo-processing" class="demo-hidden text-center mt-5">
+                    <div class="spinner"></div>
+                    <p class="mt-3 text-blue font-bold animate-pulse" id="demo-loading-text">Menyusun kisi-kisi soal...</p>
+                </div>
+
+                <div id="demo-result" class="demo-hidden mt-5 relative">
+                    <div class="result-mockup">
+                        <p class="font-bold text-dark mb-2">Mata Pelajaran: <span id="result-topic" class="text-blue">...</span></p>
+                        <p class="text-sm text-gray mb-4">Pratinjau hasil generasi AI:</p>
+                        
+                        <div class="soal-dummy">
+                            <p><strong>1.</strong> Planet manakah yang dijuluki sebagai "Planet Merah"?</p>
+                            <ul class="options-dummy">
+                                <li>A. Venus</li>
+                                <li class="text-blue font-bold">B. Mars</li>
+                                <li>C. Jupiter</li>
+                                <li>D. Saturnus</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="soal-dummy blurred mt-4">
+                            <p><strong>2.</strong> Mengapa Pluto tidak lagi diklasifikasikan sebagai planet utama?</p>
+                        </div>
+                        
+                        <div class="locked-overlay">
+                            <h3 class="mb-2 text-dark font-bold">Luar Biasa, Bukan?</h3>
+                            <p class="mb-4 text-sm">AI kami berhasil menyusun soal lengkap. Daftar gratis sekarang untuk melihat semuanya dan mengekspor ke Word/PDF.</p>
+                            <a href="https://LINK_RAILWAY_ANDA.up.railway.app/register" class="btn-primary">Daftar & Unduh Soal</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container"><p>&copy; 2026 OtakDua. Empowering Educators with AI.</p></div>
+        <div class="container">
+            <p>&copy; 2026 OtakDua. Memberdayakan Guru Indonesia dengan AI.</p>
+        </div>
     </footer>
 
     <script>
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const menuOverlay = document.getElementById('menu-overlay');
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : 'auto';
-        });
         const reveals = document.querySelectorAll('.reveal-up');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
         }, { threshold: 0.1 });
         reveals.forEach(r => observer.observe(r));
+
+        function runDemo() {
+            const topicInput = document.getElementById('demo-topic').value;
+            if(!topicInput) {
+                alert("Silakan ketik materi pelajarannya dulu ya, Bapak/Ibu Guru!");
+                return;
+            }
+
+            document.getElementById('demo-input-area').style.display = 'none';
+            document.getElementById('demo-processing').style.display = 'block';
+
+            const loadingText = document.getElementById('demo-loading-text');
+            setTimeout(() => { loadingText.innerText = "Merumuskan pengecoh (distractor) soal..."; }, 1500);
+            setTimeout(() => { loadingText.innerText = "Menyelaraskan dengan tingkat kognitif siswa..."; }, 3000);
+
+            setTimeout(() => {
+                document.getElementById('demo-processing').style.display = 'none';
+                document.getElementById('demo-result').style.display = 'block';
+                document.getElementById('result-topic').innerText = topicInput.toUpperCase();
+            }, 4500);
+        }
     </script>
 </body>
 </html>
