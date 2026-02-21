@@ -212,13 +212,13 @@ section { position: relative; z-index: 20; background: var(--bg-main); width: 10
     padding: 40px 20px; text-align: center;
 }
 
-/* --- Kisah Kami --- */
+/* --- KISAH KAMI --- */
 .story-section { padding: 100px 0; background: var(--bg-white); }
 .story-box { max-width: 800px; margin: 0 auto; background: var(--bg-main); padding: 40px; border-radius: 24px; border: 1px solid var(--border-soft); font-size: 1.1rem; color: var(--text-gray); line-height: 1.8; }
 .story-box p { margin-bottom: 20px; }
 .story-box p:last-child { margin-bottom: 0; }
 
-/* --- Visi Misi (Bento Grid) --- */
+/* --- VISI MISI (Bento Grid) --- */
 .mission-section { padding: 100px 0; }
 .vision-text { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: var(--text-gray); }
 .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -229,7 +229,7 @@ section { position: relative; z-index: 20; background: var(--bg-main); width: 10
 .bento-card p { color: var(--text-gray); font-size: 0.95rem; }
 .bento-1, .bento-2, .bento-3, .bento-4 { grid-column: span 2; }
 
-/* --- Testimoni --- */
+/* --- TESTIMONI --- */
 .testimoni-section { padding: 100px 0; background: var(--bg-white); }
 .testimoni-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
 .testi-card { background: var(--bg-main); padding: 30px; border-radius: 20px; border: 1px solid var(--border-soft); }
@@ -237,7 +237,7 @@ section { position: relative; z-index: 20; background: var(--bg-main); width: 10
 .quote { font-size: 1.05rem; font-style: italic; color: var(--text-dark); margin-bottom: 20px; }
 .author { font-weight: 700; color: var(--brand-blue); }
 
-/* --- Contact --- */
+/* --- CONTACT --- */
 .contact-section { padding: 80px 0; }
 .contact-box { background: linear-gradient(135deg, #2563eb, #1e40af); padding: 60px 40px; border-radius: 30px; text-align: center; color: white; }
 .contact-box .section-title { color: white; }
@@ -246,7 +246,7 @@ section { position: relative; z-index: 20; background: var(--bg-main); width: 10
 
 
 /* ========================================================================= */
-/* --- HALAMAN DETAIL PRODUK (YANG TADI SEMPAT HILANG) --- */
+/* --- HALAMAN DETAIL PRODUK (AGAR FITUR TIDAK HILANG) --- */
 /* ========================================================================= */
 .product-detail-hero {
     padding: 150px 5% 80px 5%;
