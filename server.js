@@ -7,6 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// --- INI BARIS YANG HILANG. INI WAJIB ADA AGAR HTML BISA TAMPIL ---
+app.use(express.static(__dirname));
+// ------------------------------------------------------------------
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 app.post('/api/demo-soal', async (req, res) => {
