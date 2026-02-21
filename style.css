@@ -102,7 +102,7 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
 }
 .btn-outline-white:hover { background: white; color: var(--text-dark); }
 
-/* --- HERO IMAGE SEQUENCE (FIX TOTAL) --- */
+/* --- HERO IMAGE SEQUENCE (FIX TOTAL & PENGAMAN TOMBOL) --- */
 .hero-sequence-section {
     position: relative; 
     width: 100%; 
@@ -147,6 +147,7 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     width: 90%; 
     max-width: 800px;
     display: flex; flex-direction: column; justify-content: center;
+    pointer-events: none; /* PENGAMAN: Area kosong tidak menghalangi klik */
 }
 
 .slide-content-glass {
@@ -155,7 +156,9 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.2); 
     color: white; text-align: left;
+    pointer-events: auto; /* PENGAMAN: Hanya area kaca yang bisa diklik */
 }
+
 .slide-content-glass .badge { 
     background: rgba(255,255,255,0.2); color: white; 
     border: none; display: inline-block; padding: 6px 14px; 
@@ -165,6 +168,12 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
 .text-light-blue { color: #93c5fd; }
 .slide-content-glass .hero-subtitle { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
 .slide-content-glass .hero-buttons { display: flex; gap: 15px; justify-content: flex-start; }
+
+/* PENGAMAN: Tombol selalu di depan */
+.slide-content-glass .hero-buttons a {
+    position: relative;
+    z-index: 50; 
+}
 
 /* --- Sections Umum --- */
 section { position: relative; z-index: 20; background: var(--bg-main); width: 100%; }
@@ -246,7 +255,7 @@ section { position: relative; z-index: 20; background: var(--bg-main); width: 10
 
 
 /* ========================================================================= */
-/* --- HALAMAN DETAIL PRODUK (AGAR FITUR TIDAK HILANG) --- */
+/* --- HALAMAN DETAIL PRODUK --- */
 /* ========================================================================= */
 .product-detail-hero {
     padding: 150px 5% 80px 5%;
