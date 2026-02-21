@@ -39,14 +39,14 @@ body { background-color: var(--bg-main); color: var(--text-dark); line-height: 1
     height: 60px; 
     width: auto;  
     object-fit: contain; 
-    transform: scale(2.5); 
+    transform: scale(1.7); 
     transform-origin: left center; 
     transition: transform 0.3s ease; /* Tambahan efek halus saat disentuh */
 }
 
 /* Efek saat logo disorot (hover) */
 .logo a:hover img {
-    transform: scale(2.6); 
+    transform: scale(1.8); 
 }
 
 /* --- ORNAMEN TENGAH NAVBAR --- */
